@@ -4,7 +4,7 @@
 ## Description
 Using Mongoose and a Mongo database, allows the user to track different resistance or cardio activities and track their workouts with that data.
 
-[Deployed Link]()
+[Deployed Link](https://salty-stream-15510.herokuapp.com/)
 
 ![Badge](https://img.shields.io/static/v1?label=License&message=MIT&color=<brightgreen>)
 
@@ -38,6 +38,6 @@ Please feel free to reach out to either of the following links with questions re
 ##### Github: [JSarvay](http://github.com/JSarvay/)
 ##### E-mail: jordans1@vt.edu
 
-![landing](./public/assets/img/landing.png)
-![add](./public/assets/img/add.png)
-![devour](./public/assets/img/devour.png)
+![landing](./public/assets/landing.png)
+![workout](./public/assets/workout.png)
+![chart](./public/assets/chart.png)
