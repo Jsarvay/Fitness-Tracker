@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const { query } = require("express");
-const Workout = require("../models/workout");
+const db = require("../models");
+
 //set Api get route
 router.get("/api/workouts", (req,res) => {
-    Workout.find().then(dbWorkouts => {
+    db.Workout.find({}).then(dbWorkouts => {
         res.json(dbWorkouts);
     })
     .catch(err => {
@@ -13,7 +14,7 @@ router.get("/api/workouts", (req,res) => {
 
 //set Api get route for date range
 router.get("/api/workouts/range", (req,res) => {
-    Workout.find({ day: {$gte: query.start, $lte: query.end } }).then(dbWorkouts => {
+    db.Workout.find({}).then(dbWorkouts => {
         res.json(dbWorkouts);
     })
     .catch(err => {
@@ -23,7 +24,8 @@ router.get("/api/workouts/range", (req,res) => {
 
 //set Api post route
 router.post("/api/workouts", (req,res) => {
-    Workout.create({}).then(dbWorkouts => {
+    console.log("hit the post");
+    db.Workout.create({}).then(dbWorkouts => {
         res.json(dbWorkouts);
     })
     .catch(err => {
@@ -33,7 +35,7 @@ router.post("/api/workouts", (req,res) => {
 
 //set Api put route
 router.put("/api/workouts/:id", ({ body, params },res) => {
-    Workout.findByIdAndUpdate(params.id, { $push: { exercise: body } },
+    db.Workout.findByIdAndUpdate(params.id, { $push: { exercises: body } },
         {new: true, runValidators: true}
         ).then(dbWorkouts => {
             res.json(dbWorkouts);
